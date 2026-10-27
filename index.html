@@ -125,7 +125,7 @@ html[lang=en] .nav .ct .l{display:none}
   .cards.n5>.card:nth-child(1) .pr b{font-size:25px}
   .cards.n5>.card:nth-child(2) .no{font-size:36px}
 }
-.card{display:block;background:var(--bg2);border:1px solid var(--line);overflow:hidden;transition:transform .35s,border-color .35s}
+.card{position:relative;display:block;background:var(--bg2);border:1px solid var(--line);overflow:hidden;transition:transform .35s,border-color .35s}
 .card:hover{transform:translateY(-3px);border-color:rgba(201,169,98,.55)}
 .card figure{position:relative;overflow:hidden;aspect-ratio:1200/630;background:#000}
 .card figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
@@ -140,6 +140,11 @@ html[lang=en] .nav .ct .l{display:none}
 .card .pr{border-top:1px solid var(--line);padding-top:11px}
 .card .pr .k{font-size:11px;letter-spacing:.24em;color:var(--gold);margin-right:10px}
 .card .pr b{font-size:21px;font-weight:700;color:var(--gold2);letter-spacing:.02em}
+.card .cl{position:absolute;inset:0;z-index:1}
+.card .pr{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 0}
+.card .ms{position:relative;z-index:2;margin-left:auto;align-self:center;font-size:11px;letter-spacing:.08em;padding:5px 12px 5px 28px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#e8e4dc;transition:background .3s,border-color .3s;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23d9be86' stroke-width='1.3'%3E%3Cpath d='M4 1.5h5.5L13 5v9.5H4z'/%3E%3Cpath d='M9.5 1.5V5H13M6 8.5h5M6 11h5'/%3E%3C/svg%3E") 10px 50%/13px no-repeat}
+.card .ms:hover{background-color:rgba(201,169,98,.16);border-color:rgba(201,169,98,.7)}
+html[lang="ja"] .card .ms.ja,html[lang="en"] .card .ms.en,html[lang="zh"] .card .ms.zh{display:inline-block}
 
 footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-area-inset-bottom));text-align:center;font-size:11px;color:#8d877c;line-height:1.9}
 </style>
@@ -164,51 +169,51 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
     <p class="spec"><span class="l ja">東京都中央区豊海町／都営大江戸線「勝どき」駅 徒歩10分／地上53階・総戸数2,046戸／2026年11月竣工予定</span><span class="l en">Toyomi-cho, Chuo-ku, Tokyo / 10 min walk to Kachidoki Sta. / 53 floors, 2,046 homes / Completion Nov 2026</span><span class="l zh">东京都中央区丰海町／都营大江户线「胜哄」站 步行10分钟／地上53层・2,046户／2026年11月竣工预定</span></p>
     <p class="cnt"><span class="l ja">掲載中 5住戸</span><span class="l en">5 residences available</span><span class="l zh">在售 5套</span></p>
     <div class="cards n5">
-      <a class="card" href="https://tokyo-estate.github.io/toyomi-tower-e5209/" data-href="https://tokyo-estate.github.io/toyomi-tower-e5209/?lang=" target="_blank" rel="noopener">
+      <div class="card"><a class="cl" href="https://tokyo-estate.github.io/toyomi-tower-e5209/" data-href="https://tokyo-estate.github.io/toyomi-tower-e5209/?lang=" target="_blank" rel="noopener" aria-label="E5209"></a>
         <figure><img src="img/u_toyomi_e5209.jpg" width="960" height="504" loading="lazy" alt="E5209"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
           <p class="no">E5209<small>52F</small></p>
           <p class="ln"><span class="l ja">東ウイング52階、東京湾を一望</span><span class="l en">East Wing 52F, sweeping bay views</span><span class="l zh">东栋52层 一览东京湾</span></p>
           <ul class="sp"><li><span class="l ja">52階</span><span class="l en">52F</span><span class="l zh">52层</span></li><li><span class="l ja">南向き</span><span class="l en">South</span><span class="l zh">朝南</span></li><li>2LDK+WIC+SIC+WIP</li><li>126.26㎡</li></ul>
-          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>5億6,500万円</b></span><span class="l en"><span class="k">Price</span><b>¥565,000,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 2,400万元</b></span></p>
+          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>5億6,500万円</b></span><span class="l en"><span class="k">Price</span><b>¥565,000,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 2,400万元</b></span><a class="ms l ja" href="maisoku/toyomi_e5209.pdf" target="_blank" rel="noopener">販売図面</a><a class="ms l en" href="maisoku/toyomi_e5209.pdf" target="_blank" rel="noopener">Floor plan</a><a class="ms l zh" href="maisoku/toyomi_e5209_zh.pdf" target="_blank" rel="noopener">销售图纸</a></p>
         </div>
-      </a>
-      <a class="card" href="https://tokyo-estate.github.io/toyomi-tower-w4416/" data-href="https://tokyo-estate.github.io/toyomi-tower-w4416/?lang=" target="_blank" rel="noopener">
+      </div>
+      <div class="card"><a class="cl" href="https://tokyo-estate.github.io/toyomi-tower-w4416/" data-href="https://tokyo-estate.github.io/toyomi-tower-w4416/?lang=" target="_blank" rel="noopener" aria-label="W4416"></a>
         <figure><img src="img/u_toyomi_w4416.jpg" width="960" height="504" loading="lazy" alt="W4416"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
           <p class="no">W4416<small>44F</small></p>
           <p class="ln"><span class="l ja">西ウイング44階、東京湾の永久眺望</span><span class="l en">West Wing 44F, protected bay views</span><span class="l zh">西栋44层 永久东京湾景观</span></p>
           <ul class="sp"><li><span class="l ja">44階</span><span class="l en">44F</span><span class="l zh">44层</span></li><li><span class="l ja">南西向き</span><span class="l en">Southwest</span><span class="l zh">朝西南</span></li><li>2LDK+2WIC+SIC</li><li>106.82㎡</li></ul>
-          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>3億9,500万円</b></span><span class="l en"><span class="k">Price</span><b>¥395,000,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 1,680万元</b></span></p>
+          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>3億9,500万円</b></span><span class="l en"><span class="k">Price</span><b>¥395,000,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 1,680万元</b></span><a class="ms l ja" href="maisoku/toyomi_w4416.pdf" target="_blank" rel="noopener">販売図面</a><a class="ms l en" href="maisoku/toyomi_w4416.pdf" target="_blank" rel="noopener">Floor plan</a><a class="ms l zh" href="maisoku/toyomi_w4416_zh.pdf" target="_blank" rel="noopener">销售图纸</a></p>
         </div>
-      </a>
-      <a class="card" href="https://tokyo-estate.github.io/toyomi-tower-w4902/" data-href="https://tokyo-estate.github.io/toyomi-tower-w4902/?lang=" target="_blank" rel="noopener">
+      </div>
+      <div class="card"><a class="cl" href="https://tokyo-estate.github.io/toyomi-tower-w4902/" data-href="https://tokyo-estate.github.io/toyomi-tower-w4902/?lang=" target="_blank" rel="noopener" aria-label="W4902"></a>
         <figure><img src="img/u_toyomi_w4902.jpg" width="960" height="504" loading="lazy" alt="W4902"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
           <p class="no">W4902<small>49F</small></p>
           <p class="ln"><span class="l ja">49階、東京タワーと浜離宮を一望</span><span class="l en">49F, Tokyo Tower & Hama-rikyu views</span><span class="l zh">49层 尽览东京塔与滨离宫</span></p>
           <ul class="sp"><li><span class="l ja">49階</span><span class="l en">49F</span><span class="l zh">49层</span></li><li><span class="l ja">北西向き</span><span class="l en">Northwest</span><span class="l zh">朝西北</span></li><li>2LDK+2WIC+SIC</li><li>85.03㎡</li></ul>
-          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>2億7,900万円</b></span><span class="l en"><span class="k">Price</span><b>¥279,000,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 1,180万元</b></span></p>
+          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>2億7,900万円</b></span><span class="l en"><span class="k">Price</span><b>¥279,000,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 1,180万元</b></span><a class="ms l ja" href="maisoku/toyomi_w4902.pdf" target="_blank" rel="noopener">販売図面</a><a class="ms l en" href="maisoku/toyomi_w4902.pdf" target="_blank" rel="noopener">Floor plan</a><a class="ms l zh" href="maisoku/toyomi_w4902_zh.pdf" target="_blank" rel="noopener">销售图纸</a></p>
         </div>
-      </a>
-      <a class="card" href="https://tokyo-estate.github.io/toyomi-tower-e4115/" data-href="https://tokyo-estate.github.io/toyomi-tower-e4115/?lang=" target="_blank" rel="noopener">
+      </div>
+      <div class="card"><a class="cl" href="https://tokyo-estate.github.io/toyomi-tower-e4115/" data-href="https://tokyo-estate.github.io/toyomi-tower-e4115/?lang=" target="_blank" rel="noopener" aria-label="E4115"></a>
         <figure><img src="img/u_toyomi_e4115.jpg" width="960" height="504" loading="lazy" alt="E4115"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
           <p class="no">E4115<small>41F</small></p>
           <p class="ln"><span class="l ja">東ウイング41階、南向きのベイビュー</span><span class="l en">East Wing 41F, south-facing bay view</span><span class="l zh">东栋41层 朝南海景</span></p>
           <ul class="sp"><li><span class="l ja">41階</span><span class="l en">41F</span><span class="l zh">41层</span></li><li><span class="l ja">南向き</span><span class="l en">South</span><span class="l zh">朝南</span></li><li>2LDK+WIC+SIC</li><li>61.33㎡</li></ul>
-          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>1億5,900万円</b></span><span class="l en"><span class="k">Price</span><b>¥159,000,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 670万元</b></span></p>
+          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>1億5,900万円</b></span><span class="l en"><span class="k">Price</span><b>¥159,000,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 670万元</b></span><a class="ms l ja" href="maisoku/toyomi_e4115.pdf" target="_blank" rel="noopener">販売図面</a><a class="ms l en" href="maisoku/toyomi_e4115.pdf" target="_blank" rel="noopener">Floor plan</a><a class="ms l zh" href="maisoku/toyomi_e4115_zh.pdf" target="_blank" rel="noopener">销售图纸</a></p>
         </div>
-      </a>
-      <a class="card" href="https://tokyo-estate.github.io/toyomi-tower-w4004/" data-href="https://tokyo-estate.github.io/toyomi-tower-w4004/?lang=" target="_blank" rel="noopener">
+      </div>
+      <div class="card"><a class="cl" href="https://tokyo-estate.github.io/toyomi-tower-w4004/" data-href="https://tokyo-estate.github.io/toyomi-tower-w4004/?lang=" target="_blank" rel="noopener" aria-label="W4004"></a>
         <figure><img src="img/u_toyomi_w4004.jpg" width="960" height="504" loading="lazy" alt="W4004"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
           <p class="no">W4004<small>40F</small></p>
           <p class="ln"><span class="l ja">40階、浜離宮・築地を望む</span><span class="l en">40F, views of Hama-rikyu & Tsukiji</span><span class="l zh">40层 远眺滨离宫・筑地</span></p>
           <ul class="sp"><li><span class="l ja">40階</span><span class="l en">40F</span><span class="l zh">40层</span></li><li><span class="l ja">北向き</span><span class="l en">North</span><span class="l zh">朝北</span></li><li>1LDK</li><li>45.25㎡</li></ul>
-          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>9,800万円</b></span><span class="l en"><span class="k">Price</span><b>¥98,000,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 415万元</b></span></p>
+          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>9,800万円</b></span><span class="l en"><span class="k">Price</span><b>¥98,000,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 415万元</b></span><a class="ms l ja" href="maisoku/toyomi_w4004.pdf" target="_blank" rel="noopener">販売図面</a><a class="ms l en" href="maisoku/toyomi_w4004.pdf" target="_blank" rel="noopener">Floor plan</a><a class="ms l zh" href="maisoku/toyomi_w4004_zh.pdf" target="_blank" rel="noopener">销售图纸</a></p>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -219,7 +224,7 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
     <p class="spec"><span class="l ja">東京都港区港南／JR「品川」駅 徒歩13分・専用シャトルバス／地上34階・総戸数815戸／2026年10月竣工</span><span class="l en">Konan, Minato-ku, Tokyo / 13 min walk to Shinagawa Sta., shuttle bus / 34 floors, 815 homes / Completed Oct 2026</span><span class="l zh">东京都港区港南／JR「品川」站 步行13分钟・专属班车／地上34层・815户／2026年10月竣工</span></p>
     <p class="cnt"><span class="l ja">掲載中 4住戸</span><span class="l en">4 residences available</span><span class="l zh">在售 4套</span></p>
     <div class="cards n4">
-      <a class="card" href="https://tokyo-estate.github.io/livio-tower-shinagawa-3415/" data-href="https://tokyo-estate.github.io/livio-tower-shinagawa-3415/?lang=" target="_blank" rel="noopener">
+      <div class="card"><a class="cl" href="https://tokyo-estate.github.io/livio-tower-shinagawa-3415/" data-href="https://tokyo-estate.github.io/livio-tower-shinagawa-3415/?lang=" target="_blank" rel="noopener" aria-label="3415"></a>
         <figure><img src="img/u_livio_3415.jpg" width="960" height="504" loading="lazy" alt="3415"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
           <p class="no">3415<small>34F</small></p>
@@ -227,8 +232,8 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
           <ul class="sp"><li><span class="l ja">34階</span><span class="l en">34F</span><span class="l zh">34层</span></li><li><span class="l ja">北東角</span><span class="l en">Northeast corner</span><span class="l zh">东北角</span></li><li>3LDK+3WIC</li><li>130.24㎡</li></ul>
           <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>5億8,000万円</b></span><span class="l en"><span class="k">Price</span><b>¥580,000,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 2,460万元</b></span></p>
         </div>
-      </a>
-      <a class="card" href="https://tokyo-estate.github.io/livio-tower-shinagawa-3316/" data-href="https://tokyo-estate.github.io/livio-tower-shinagawa-3316/?lang=" target="_blank" rel="noopener">
+      </div>
+      <div class="card"><a class="cl" href="https://tokyo-estate.github.io/livio-tower-shinagawa-3316/" data-href="https://tokyo-estate.github.io/livio-tower-shinagawa-3316/?lang=" target="_blank" rel="noopener" aria-label="3316"></a>
         <figure><img src="img/u_livio_3316.jpg" width="960" height="504" loading="lazy" alt="3316"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
           <p class="no">3316<small>33F</small></p>
@@ -236,8 +241,8 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
           <ul class="sp"><li><span class="l ja">33階</span><span class="l en">33F</span><span class="l zh">33层</span></li><li><span class="l ja">南東角</span><span class="l en">Southeast corner</span><span class="l zh">东南角</span></li><li>3LDK+N</li><li>75.10㎡</li></ul>
           <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>2億8,800万円</b></span><span class="l en"><span class="k">Price</span><b>¥288,000,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 1,220万元</b></span></p>
         </div>
-      </a>
-      <a class="card" href="https://tokyo-estate.github.io/livio-tower-shinagawa-1517/" data-href="https://tokyo-estate.github.io/livio-tower-shinagawa-1517/?lang=" target="_blank" rel="noopener">
+      </div>
+      <div class="card"><a class="cl" href="https://tokyo-estate.github.io/livio-tower-shinagawa-1517/" data-href="https://tokyo-estate.github.io/livio-tower-shinagawa-1517/?lang=" target="_blank" rel="noopener" aria-label="1517"></a>
         <figure><img src="img/u_livio_1517.jpg" width="960" height="504" loading="lazy" alt="1517"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
           <p class="no">1517<small>15F</small></p>
@@ -245,8 +250,8 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
           <ul class="sp"><li><span class="l ja">15階</span><span class="l en">15F</span><span class="l zh">15层</span></li><li><span class="l ja">東向き</span><span class="l en">East</span><span class="l zh">朝东</span></li><li>2LDK+SIC</li><li>60.69㎡</li></ul>
           <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>1億4,970万円</b></span><span class="l en"><span class="k">Price</span><b>¥149,700,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 635万元</b></span></p>
         </div>
-      </a>
-      <a class="card" href="https://tokyo-estate.github.io/livio-shinagawa-2915/" data-href="https://tokyo-estate.github.io/livio-shinagawa-2915/?lang=" target="_blank" rel="noopener">
+      </div>
+      <div class="card"><a class="cl" href="https://tokyo-estate.github.io/livio-shinagawa-2915/" data-href="https://tokyo-estate.github.io/livio-shinagawa-2915/?lang=" target="_blank" rel="noopener" aria-label="2915"></a>
         <figure><img src="img/u_livio_2915.jpg" width="960" height="504" loading="lazy" alt="2915"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
           <p class="no">2915<small>29F</small></p>
@@ -254,7 +259,7 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
           <ul class="sp"><li><span class="l ja">29階</span><span class="l en">29F</span><span class="l zh">29层</span></li><li><span class="l ja">南向き</span><span class="l en">South</span><span class="l zh">朝南</span></li><li>2LDK</li><li>60.18㎡</li></ul>
           <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>1億4,900万円</b></span><span class="l en"><span class="k">Price</span><b>¥149,000,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 630万元</b></span></p>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -265,7 +270,7 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
     <p class="spec"><span class="l ja">東京都中央区晴海／東京BRT 徒歩0〜1分／SKY DUO（PARK VILLAGE・SUN VILLAGE T棟）地上50階／2025年10月竣工</span><span class="l en">Harumi, Chuo-ku, Tokyo / Tokyo BRT 0–1 min / SKY DUO (PARK & SUN VILLAGE towers), 50 floors / Completed Oct 2025</span><span class="l zh">东京都中央区晴海／东京BRT 步行0〜1分钟／SKY DUO（PARK・SUN VILLAGE T栋）地上50层／2025年10月竣工</span></p>
     <p class="cnt"><span class="l ja">掲載中 2住戸</span><span class="l en">2 residences available</span><span class="l zh">在售 2套</span></p>
     <div class="cards n2">
-      <a class="card" href="https://tokyo-estate.github.io/harumi-flag-sun-t-4505/" data-href="https://tokyo-estate.github.io/harumi-flag-sun-t-4505/?lang=" target="_blank" rel="noopener">
+      <div class="card"><a class="cl" href="https://tokyo-estate.github.io/harumi-flag-sun-t-4505/" data-href="https://tokyo-estate.github.io/harumi-flag-sun-t-4505/?lang=" target="_blank" rel="noopener" aria-label="SUN-T 4505"></a>
         <figure><img src="img/u_harumi_sunt4505.jpg" width="960" height="504" loading="lazy" alt="SUN-T 4505"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
           <p class="no">SUN-T 4505<small>45F</small></p>
@@ -273,16 +278,16 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
           <ul class="sp"><li><span class="l ja">45階</span><span class="l en">45F</span><span class="l zh">45层</span></li><li><span class="l ja">南西角</span><span class="l en">Southwest corner</span><span class="l zh">西南角</span></li><li>3LDK</li><li>92.76㎡</li></ul>
           <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>3億2,000万円</b></span><span class="l en"><span class="k">Price</span><b>¥320,000,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 1,360万元</b></span></p>
         </div>
-      </a>
-      <a class="card" href="https://tokyo-estate.github.io/harumi-flag-park-t-4001/" data-href="https://tokyo-estate.github.io/harumi-flag-park-t-4001/?lang=" target="_blank" rel="noopener">
+      </div>
+      <div class="card"><a class="cl" href="https://tokyo-estate.github.io/harumi-flag-park-t-4001/" data-href="https://tokyo-estate.github.io/harumi-flag-park-t-4001/?lang=" target="_blank" rel="noopener" aria-label="PARK-T 4001"></a>
         <figure><img src="img/u_harumi_parkt4001.jpg" width="960" height="504" loading="lazy" alt="PARK-T 4001"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
           <p class="no">PARK-T 4001<small>40F</small></p>
           <p class="ln"><span class="l ja">PARK VILLAGE 40階の角住戸</span><span class="l en">PARK VILLAGE 40F corner residence</span><span class="l zh">PARK VILLAGE 40层 角户</span></p>
           <ul class="sp"><li><span class="l ja">40階</span><span class="l en">40F</span><span class="l zh">40层</span></li><li><span class="l ja">角</span><span class="l en">Corner</span><span class="l zh">角户</span></li><li>3LDK</li><li>78.28㎡</li></ul>
-          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>1億9,880万円</b></span><span class="l en"><span class="k">Price</span><b>¥198,800,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 840万元</b></span></p>
+          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>1億9,880万円</b></span><span class="l en"><span class="k">Price</span><b>¥198,800,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 840万元</b></span><a class="ms l ja" href="maisoku/harumi_parkt4001.pdf" target="_blank" rel="noopener">販売図面</a><a class="ms l en" href="maisoku/harumi_parkt4001.pdf" target="_blank" rel="noopener">Floor plan</a><a class="ms l zh" href="maisoku/harumi_parkt4001.pdf" target="_blank" rel="noopener">销售图纸</a></p>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -293,15 +298,15 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
     <p class="spec"><span class="l ja">大阪府大阪市北区大深町／JR「大阪」駅 徒歩6分／地上48階・総戸数525戸／2013年3月竣工</span><span class="l en">Ofuka-cho, Kita-ku, Osaka / 6 min walk to JR Osaka Sta. / 48 floors, 525 homes / Completed Mar 2013</span><span class="l zh">大阪府大阪市北区大深町／JR「大阪」站 步行6分钟／地上48层・525户／2013年3月竣工</span></p>
     <p class="cnt"><span class="l ja">掲載中 1住戸</span><span class="l en">1 residence available</span><span class="l zh">在售 1套</span></p>
     <div class="cards n1">
-      <a class="card" href="https://tokyo-estate.github.io/grandfront-osaka-owners-tower-1906/" data-href="https://tokyo-estate.github.io/grandfront-osaka-owners-tower-1906/" target="_blank" rel="noopener">
+      <div class="card"><a class="cl" href="https://tokyo-estate.github.io/grandfront-osaka-owners-tower-1906/" data-href="https://tokyo-estate.github.io/grandfront-osaka-owners-tower-1906/" target="_blank" rel="noopener" aria-label="1906"></a>
         <figure><img src="img/u_gfo_1906.jpg" width="960" height="504" loading="lazy" alt="1906"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
           <p class="no">1906<small>19F</small></p>
           <p class="ln"><span class="l ja">梅田の空に暮らす19階</span><span class="l en">19F above Umeda</span><span class="l zh">梅田上空的19层</span></p>
           <ul class="sp"><li><span class="l ja">19階</span><span class="l en">19F</span><span class="l zh">19层</span></li><li><span class="l ja">南向き</span><span class="l en">South</span><span class="l zh">朝南</span></li><li>2LDK</li><li>81.94㎡</li></ul>
-          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>2億4,980万円</b></span><span class="l en"><span class="k">Price</span><b>¥249,800,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 1,060万元</b></span></p>
+          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>2億4,980万円</b></span><span class="l en"><span class="k">Price</span><b>¥249,800,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 1,060万元</b></span><a class="ms l ja" href="maisoku/gfo_1906.pdf" target="_blank" rel="noopener">販売図面</a><a class="ms l en" href="maisoku/gfo_1906.pdf" target="_blank" rel="noopener">Floor plan</a><a class="ms l zh" href="maisoku/gfo_1906.pdf" target="_blank" rel="noopener">销售图纸</a></p>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -312,15 +317,15 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
     <p class="spec"><span class="l ja">東京都品川区東品川／りんかい線「品川シーサイド」駅 徒歩4分／地上29階・総戸数817戸／2019年1月竣工</span><span class="l en">Higashi-Shinagawa, Shinagawa-ku, Tokyo / 4 min walk to Shinagawa Seaside Sta. / 29 floors, 817 homes / Completed Jan 2019</span><span class="l zh">东京都品川区东品川／临海线「品川Seaside」站 步行4分钟／地上29层・817户／2019年1月竣工</span></p>
     <p class="cnt"><span class="l ja">掲載中 1住戸</span><span class="l en">1 residence available</span><span class="l zh">在售 1套</span></p>
     <div class="cards n1">
-      <a class="card" href="https://tokyo-estate.github.io/prime-parks-shinagawa-seaside-the-tower-601/" data-href="https://tokyo-estate.github.io/prime-parks-shinagawa-seaside-the-tower-601/?lang=" target="_blank" rel="noopener">
+      <div class="card"><a class="cl" href="https://tokyo-estate.github.io/prime-parks-shinagawa-seaside-the-tower-601/" data-href="https://tokyo-estate.github.io/prime-parks-shinagawa-seaside-the-tower-601/?lang=" target="_blank" rel="noopener" aria-label="601"></a>
         <figure><img src="img/u_pps_601.jpg" width="960" height="504" loading="lazy" alt="601"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
           <p class="no">601<small>6F</small></p>
           <p class="ln"><span class="l ja">駅へデッキ直結・家具家電付き</span><span class="l en">Deck-linked to the station, furnished</span><span class="l zh">连廊直通车站・带家具家电</span></p>
           <ul class="sp"><li><span class="l ja">6階</span><span class="l en">6F</span><span class="l zh">6层</span></li><li><span class="l ja">南向き</span><span class="l en">South</span><span class="l zh">朝南</span></li><li>2LDK</li><li>56.91㎡</li></ul>
-          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>1億690万円</b></span><span class="l en"><span class="k">Price</span><b>¥106,900,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 454万元</b></span></p>
+          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>1億690万円</b></span><span class="l en"><span class="k">Price</span><b>¥106,900,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 454万元</b></span><a class="ms l ja" href="maisoku/pps_601.pdf" target="_blank" rel="noopener">販売図面</a><a class="ms l en" href="maisoku/pps_601.pdf" target="_blank" rel="noopener">Floor plan</a><a class="ms l zh" href="maisoku/pps_601.pdf" target="_blank" rel="noopener">销售图纸</a></p>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -331,15 +336,15 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
     <p class="spec"><span class="l ja">千葉県千葉市美浜区若葉／JR京葉線「海浜幕張」駅 徒歩16分／地上38階・総戸数768戸／2025年12月竣工</span><span class="l en">Wakaba, Mihama-ku, Chiba / 16 min walk to Kaihin-Makuhari Sta. / 38 floors, 768 homes / Completed Dec 2025</span><span class="l zh">千叶县千叶市美滨区若叶／JR京叶线「海滨幕张」站 步行16分钟／地上38层・768户／2025年12月竣工</span></p>
     <p class="cnt"><span class="l ja">掲載中 1住戸</span><span class="l en">1 residence available</span><span class="l zh">在售 1套</span></p>
     <div class="cards n1">
-      <a class="card" href="https://tokyo-estate.github.io/makuhari-baypark-rise-gate-tower-1819/" data-href="https://tokyo-estate.github.io/makuhari-baypark-rise-gate-tower-1819/?lang=" target="_blank" rel="noopener">
+      <div class="card"><a class="cl" href="https://tokyo-estate.github.io/makuhari-baypark-rise-gate-tower-1819/" data-href="https://tokyo-estate.github.io/makuhari-baypark-rise-gate-tower-1819/?lang=" target="_blank" rel="noopener" aria-label="1819"></a>
         <figure><img src="img/u_mbp_1819.jpg" width="960" height="504" loading="lazy" alt="1819"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
           <p class="no">1819<small>18F</small></p>
           <p class="ln"><span class="l ja">高級家具家電付きの3LDK</span><span class="l en">3LDK with designer furniture</span><span class="l zh">带高级家具家电的三居室</span></p>
           <ul class="sp"><li><span class="l ja">18階</span><span class="l en">18F</span><span class="l zh">18层</span></li><li><span class="l ja">北向き</span><span class="l en">North</span><span class="l zh">朝北</span></li><li>3LDK</li><li>71.06㎡</li></ul>
-          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>6,490万円</b></span><span class="l en"><span class="k">Price</span><b>¥64,900,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 275万元</b></span></p>
+          <p class="pr"><span class="l ja"><span class="k">販売価格</span><b>6,490万円</b></span><span class="l en"><span class="k">Price</span><b>¥64,900,000</b></span><span class="l zh"><span class="k">售价</span><b>人民币 275万元</b></span><a class="ms l ja" href="maisoku/mbp_1819.pdf" target="_blank" rel="noopener">販売図面</a><a class="ms l en" href="maisoku/mbp_1819.pdf" target="_blank" rel="noopener">Floor plan</a><a class="ms l zh" href="maisoku/mbp_1819.pdf" target="_blank" rel="noopener">销售图纸</a></p>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -356,7 +361,7 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
     document.documentElement.lang=l;
     try{localStorage.setItem('lang',l);}catch(e){}
     document.querySelectorAll('#lang a').forEach(function(a){a.classList.toggle('on',a.dataset.lang===l);});
-    document.querySelectorAll('a.card').forEach(function(a){
+    document.querySelectorAll('a.cl').forEach(function(a){
       var h=a.dataset.href; a.href=/\?lang=$/.test(h)?(l==='ja'?h.replace(/\?lang=$/,''):h+l):h;
     });
   }
