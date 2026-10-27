@@ -44,9 +44,34 @@ html[lang="en"] body{letter-spacing:.02em}
 .intro .no::before{content:"";width:36px;height:1px;background:var(--gold)}
 .intro h1{font-size:clamp(30px,6.4vw,58px);font-weight:200;letter-spacing:.08em;line-height:1.3;color:#fff;margin:14px 0 14px}
 .intro p.lead{font-size:clamp(13px,3.4vw,15px);color:#bdb7ab;letter-spacing:.08em}
-.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
-.nav a{font-size:12px;letter-spacing:.08em;padding:7px 14px;border:1px solid rgba(201,169,98,.45);border-radius:999px;color:var(--gold2);transition:background .3s}
-.nav a:hover{background:rgba(201,169,98,.14)}
+/* 冒頭ナビ: 同じ大きさのタイルを2列（PCは3列）で並べる */
+.nav{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:28px}
+.nav a{position:relative;display:flex;align-items:center;gap:12px;min-height:74px;padding:10px 12px;border:1px solid rgba(201,169,98,.32);background:rgba(255,255,255,.02);transition:background .3s,border-color .3s}
+.nav a:hover{background:rgba(201,169,98,.1);border-color:rgba(201,169,98,.7)}
+.nav i{display:none;flex:0 0 auto;width:72px;height:54px;background:#000 center/cover no-repeat;filter:saturate(.9)}
+.nav .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.nav .ar{font-size:9.5px;letter-spacing:.22em;color:var(--gold)}
+.nav .nm{font-size:13px;color:#fff;letter-spacing:.06em;line-height:1.35}
+.nav .sb{font-size:10.5px;color:#a9a397;letter-spacing:.06em;line-height:1.35}
+.nav .ct{position:absolute;top:9px;right:10px;color:var(--gold2);font-size:9.5px;letter-spacing:.06em;line-height:1}
+.nav .ct b{font-size:12px;font-weight:500;margin-right:2px}
+.nav .sb{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav .ar{padding-right:42px}
+html[lang=en] .nav .nm{font-size:12px;letter-spacing:.03em}
+html[lang=en] .nav .ar{letter-spacing:.08em;padding-right:18px}
+html[lang=en] .nav .ct .l{display:none}
+@media (min-width:760px){
+  .nav .ct{position:static;text-align:center;font-size:9.5px;letter-spacing:.1em;line-height:1.2;padding-left:12px;border-left:1px solid var(--line)}
+  .nav .ct b{display:block;font-size:20px;font-weight:300;margin:0}
+  .nav .ar{padding-right:0}
+  html[lang=en] .nav .nm{font-size:14px}
+  html[lang=en] .nav .ar{letter-spacing:.18em;padding-right:0}
+  html[lang=en] .nav .ct .l.en{display:inline}
+  .nav{grid-template-columns:repeat(3,1fr);gap:12px}
+  .nav a{min-height:86px;padding:12px 16px 12px 12px;gap:14px}
+  .nav i{display:block}
+  .nav .nm{font-size:15px}
+}
 
 /* tower */
 .tower{border-top:1px solid var(--line);padding-bottom:64px}
@@ -87,7 +112,18 @@ html[lang="en"] body{letter-spacing:.02em}
   .cards.n1 .ln{font-size:15px;margin-top:10px}
   .cards.n1 .sp{margin:20px 0}
   .cards.n1 .pr b{font-size:26px}
-  .cards.n2 .no,.cards.n4 .no,.cards.n5>.card:nth-child(n+4) .no{font-size:36px}
+  .cards.n2 .no,.cards.n4 .no{font-size:36px}
+  /* 5枚: 価格順に大→小。1行目 7:5、2行目 4:4:4（12分割） */
+  .cards.n5{grid-template-columns:repeat(12,1fr)}
+  .cards.n5>.card,.cards.n5>.card:nth-child(n+4),.cards.n5>.card:last-child:nth-child(odd){grid-column:span 4}
+  .cards.n5>.card:nth-child(1){grid-column:span 7}
+  .cards.n5>.card:nth-child(2){grid-column:span 5}
+  .cards.n5>.card:nth-child(-n+2){display:flex;flex-direction:column}
+  .cards.n5>.card:nth-child(-n+2) figure{flex:1 1 auto}
+  .cards.n5>.card:nth-child(1) .no{font-size:42px}
+  .cards.n5>.card:nth-child(1) .ln{font-size:14.5px}
+  .cards.n5>.card:nth-child(1) .pr b{font-size:25px}
+  .cards.n5>.card:nth-child(2) .no{font-size:36px}
 }
 .card{display:block;background:var(--bg2);border:1px solid var(--line);overflow:hidden;transition:transform .35s,border-color .35s}
 .card:hover{transform:translateY(-3px);border-color:rgba(201,169,98,.55)}
@@ -118,7 +154,7 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
   <p class="no">Collection</p>
   <h1><span class="l ja">タワーレジデンス<br>販売物件一覧</span><span class="l en">Tower Residences<br>for Sale</span><span class="l zh">塔楼住宅<br>在售房源</span></h1>
   <p class="lead"><span class="l ja">東京・大阪・千葉の 14 住戸。各住戸をタップすると、写真・動画・間取りの詳しいページが開きます。</span><span class="l en">14 residences in Tokyo, Osaka and Chiba. Tap a residence to open its page with photos, films and floor plans.</span><span class="l zh">东京・大阪・千叶共 14 套房源。点击房源即可查看照片、视频与户型详情。</span></p>
-  <nav class="nav"><a href="#toyomi"><span class="l ja">ザ 豊海タワー マリン＆スカイ</span><span class="l en">THE TOYOMI TOWER MARINE & SKY</span><span class="l zh">丰海塔 MARINE & SKY</span></a><a href="#livio"><span class="l ja">リビオタワー品川</span><span class="l en">LIVIO TOWER SHINAGAWA</span><span class="l zh">Livio Tower 品川</span></a><a href="#harumi"><span class="l ja">晴海フラッグ</span><span class="l en">HARUMI FLAG</span><span class="l zh">晴海FLAG</span></a><a href="#gfo"><span class="l ja">グランフロント大阪 オーナーズタワー</span><span class="l en">GRAND FRONT OSAKA OWNERS TOWER</span><span class="l zh">大阪Grand Front 业主塔</span></a><a href="#pps"><span class="l ja">プライムパークス品川シーサイド ザ・タワー</span><span class="l en">PRIME PARKS SHINAGAWA SEASIDE THE TOWER</span><span class="l zh">Prime Parks 品川Seaside The Tower</span></a><a href="#mbp"><span class="l ja">幕張ベイパーク ライズゲートタワー</span><span class="l en">MAKUHARI BAY-PARK RISE GATE TOWER</span><span class="l zh">幕张Bay-Park Rise Gate Tower</span></a></nav>
+  <nav class="nav"><a href="#toyomi"><i style="background-image:url(img/toyomi_poster.jpg)"></i><span class="tx"><span class="ar"><span class="l ja">東京・豊海</span><span class="l en">TOKYO · TOYOMI</span><span class="l zh">东京・丰海</span></span><span class="nm"><span class="l ja">ザ 豊海タワー</span><span class="l en">THE TOYOMI TOWER</span><span class="l zh">丰海塔</span></span><span class="sb"><span class="l ja">マリン＆スカイ</span><span class="l en">MARINE & SKY</span><span class="l zh">MARINE & SKY</span></span></span><span class="ct"><b>5</b><span class="l ja">住戸</span><span class="l en">homes</span><span class="l zh">套</span></span></a><a href="#livio"><i style="background-image:url(img/livio_poster.jpg)"></i><span class="tx"><span class="ar"><span class="l ja">東京・品川</span><span class="l en">TOKYO · SHINAGAWA</span><span class="l zh">东京・品川</span></span><span class="nm"><span class="l ja">リビオタワー品川</span><span class="l en">LIVIO TOWER</span><span class="l zh">Livio Tower</span></span><span class="sb"><span class="l ja">港南</span><span class="l en">SHINAGAWA</span><span class="l zh">品川</span></span></span><span class="ct"><b>4</b><span class="l ja">住戸</span><span class="l en">homes</span><span class="l zh">套</span></span></a><a href="#harumi"><i style="background-image:url(img/harumi_poster.jpg)"></i><span class="tx"><span class="ar"><span class="l ja">東京・晴海</span><span class="l en">TOKYO · HARUMI</span><span class="l zh">东京・晴海</span></span><span class="nm"><span class="l ja">晴海フラッグ</span><span class="l en">HARUMI FLAG</span><span class="l zh">晴海FLAG</span></span><span class="sb"><span class="l ja">スカイデュオ</span><span class="l en">SKY DUO</span><span class="l zh">SKY DUO</span></span></span><span class="ct"><b>2</b><span class="l ja">住戸</span><span class="l en">homes</span><span class="l zh">套</span></span></a><a href="#gfo"><i style="background-image:url(img/gfo_poster.jpg)"></i><span class="tx"><span class="ar"><span class="l ja">大阪・梅田</span><span class="l en">OSAKA · UMEDA</span><span class="l zh">大阪・梅田</span></span><span class="nm"><span class="l ja">グランフロント大阪</span><span class="l en">GRAND FRONT OSAKA</span><span class="l zh">大阪Grand Front</span></span><span class="sb"><span class="l ja">オーナーズタワー</span><span class="l en">OWNERS TOWER</span><span class="l zh">业主塔</span></span></span><span class="ct"><b>1</b><span class="l ja">住戸</span><span class="l en">home</span><span class="l zh">套</span></span></a><a href="#pps"><i style="background-image:url(img/pps_poster.jpg)"></i><span class="tx"><span class="ar"><span class="l ja">東京・品川</span><span class="l en">TOKYO · SHINAGAWA</span><span class="l zh">东京・品川</span></span><span class="nm"><span class="l ja">プライムパークス</span><span class="l en">PRIME PARKS</span><span class="l zh">Prime Parks</span></span><span class="sb"><span class="l ja">品川シーサイド ザ・タワー</span><span class="l en">SHINAGAWA SEASIDE</span><span class="l zh">品川Seaside</span></span></span><span class="ct"><b>1</b><span class="l ja">住戸</span><span class="l en">home</span><span class="l zh">套</span></span></a><a href="#mbp"><i style="background-image:url(img/mbp_poster.jpg)"></i><span class="tx"><span class="ar"><span class="l ja">千葉・幕張</span><span class="l en">CHIBA · MAKUHARI</span><span class="l zh">千叶・幕张</span></span><span class="nm"><span class="l ja">幕張ベイパーク</span><span class="l en">MAKUHARI BAY-PARK</span><span class="l zh">幕张Bay-Park</span></span><span class="sb"><span class="l ja">ライズゲートタワー</span><span class="l en">RISE GATE TOWER</span><span class="l zh">Rise Gate Tower</span></span></span><span class="ct"><b>1</b><span class="l ja">住戸</span><span class="l en">home</span><span class="l zh">套</span></span></a></nav>
 </section>
 
 <section class="tower" id="toyomi">
