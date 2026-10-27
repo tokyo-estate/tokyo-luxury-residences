@@ -50,7 +50,7 @@ html[lang="en"] body{letter-spacing:.02em}
 
 /* tower */
 .tower{border-top:1px solid var(--line);padding-bottom:64px}
-.tv{position:relative;background:#000;aspect-ratio:16/9;max-height:92vh;overflow:hidden}
+.tv{position:relative;background:#000;width:100%;height:min(56.25vw,92vh);overflow:hidden}   /* aspect-ratio＋max-height だと横長画面で幅が縮んで右端が空いた */
 .tv video{width:100%;height:100%;object-fit:cover}
 .tv::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.78) 100%);pointer-events:none}
 .tv .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 22px 26px;max-width:1180px;margin:0 auto}
@@ -61,7 +61,7 @@ html[lang="en"] body{letter-spacing:.02em}
 .tower .spec{font-size:12.5px;color:#a9a397;letter-spacing:.06em;line-height:1.9}
 .tower .cnt{font-size:11px;letter-spacing:.24em;color:var(--gold);margin:18px 0 14px}
 @media (max-width:640px){
-  .tv{aspect-ratio:auto;max-height:none}
+  .tv{height:auto}
   .tv video{height:auto;aspect-ratio:16/9}
   .tv::after{display:none}
   .tv .cap{position:static;padding:16px 22px 0;background:var(--bg)}
