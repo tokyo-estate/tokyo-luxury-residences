@@ -358,7 +358,10 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
     try{localStorage.setItem('lang',l);}catch(e){}
     document.querySelectorAll('#lang a').forEach(function(a){a.classList.toggle('on',a.dataset.lang===l);});
     document.querySelectorAll('a.cl').forEach(function(a){
-      var h=a.dataset.href; a.href=/\?lang=$/.test(h)?(l==='ja'?h.replace(/\?lang=$/,''):h+l):h;
+      var h=a.dataset.href;
+      /* kks-tech.jp で開いたときは住戸サイトも kks-tech.jp 側へ（同じリポジトリ名で同期公開済み） */
+      if(/(^|\.)kks-tech\.jp$/.test(location.hostname)) h=h.replace('https://tokyo-estate.github.io/','https://kks-tech.jp/');
+      a.href=/\?lang=$/.test(h)?(l==='ja'?h.replace(/\?lang=$/,''):h+l):h;
     });
   }
   var q=(location.search.match(/lang=(ja|en|zh)/)||[])[1], s=null;
