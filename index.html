@@ -68,8 +68,27 @@ html[lang="en"] body{letter-spacing:.02em}
 }
 
 /* cards */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
-@media (max-width:420px){.cards{grid-template-columns:1fr}}
+.cards{display:grid;grid-template-columns:1fr;gap:18px}
+/* タブレット: 2列。奇数の最後の1枚は中央寄せ */
+@media (min-width:700px){
+  .cards{grid-template-columns:repeat(4,1fr)}
+  .card{grid-column:span 2}
+  .cards>.card:last-child:nth-child(odd){grid-column:2/span 2}
+}
+/* PC: 6分割グリッドで行の枚数を均等化（4枚=2+2、5枚=3+2、1枚=横長の主役カード） */
+@media (min-width:1000px){
+  .cards{grid-template-columns:repeat(6,1fr);gap:22px}
+  .cards>.card,.cards>.card:last-child:nth-child(odd){grid-column:span 2}
+  .cards.n2>.card,.cards.n4>.card,.cards.n5>.card:nth-child(n+4){grid-column:span 3}
+  .cards.n1>.card:only-child{grid-column:1/-1;display:grid;grid-template-columns:1.55fr 1fr}
+  .cards.n1 figure{aspect-ratio:auto;min-height:100%}
+  .cards.n1 .tx{display:flex;flex-direction:column;justify-content:center;padding:34px 38px}
+  .cards.n1 .no{font-size:46px}
+  .cards.n1 .ln{font-size:15px;margin-top:10px}
+  .cards.n1 .sp{margin:20px 0}
+  .cards.n1 .pr b{font-size:26px}
+  .cards.n2 .no,.cards.n4 .no,.cards.n5>.card:nth-child(n+4) .no{font-size:36px}
+}
 .card{display:block;background:var(--bg2);border:1px solid var(--line);overflow:hidden;transition:transform .35s,border-color .35s}
 .card:hover{transform:translateY(-3px);border-color:rgba(201,169,98,.55)}
 .card figure{position:relative;overflow:hidden;aspect-ratio:1200/630;background:#000}
@@ -108,7 +127,7 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
   <div class="in">
     <p class="spec"><span class="l ja">東京都中央区豊海町／都営大江戸線「勝どき」駅 徒歩10分／地上53階・総戸数2,046戸／2026年11月竣工予定</span><span class="l en">Toyomi-cho, Chuo-ku, Tokyo / 10 min walk to Kachidoki Sta. / 53 floors, 2,046 homes / Completion Nov 2026</span><span class="l zh">东京都中央区丰海町／都营大江户线「胜哄」站 步行10分钟／地上53层・2,046户／2026年11月竣工预定</span></p>
     <p class="cnt"><span class="l ja">掲載中 5住戸</span><span class="l en">5 residences available</span><span class="l zh">在售 5套</span></p>
-    <div class="cards">
+    <div class="cards n5">
       <a class="card" href="https://tokyo-estate.github.io/toyomi-tower-e5209/" data-href="https://tokyo-estate.github.io/toyomi-tower-e5209/?lang=" target="_blank" rel="noopener">
         <figure><img src="img/u_toyomi_e5209.jpg" width="960" height="504" loading="lazy" alt="E5209"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
@@ -163,7 +182,7 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
   <div class="in">
     <p class="spec"><span class="l ja">東京都港区港南／JR「品川」駅 徒歩13分・専用シャトルバス／地上34階・総戸数815戸／2026年10月竣工</span><span class="l en">Konan, Minato-ku, Tokyo / 13 min walk to Shinagawa Sta., shuttle bus / 34 floors, 815 homes / Completed Oct 2026</span><span class="l zh">东京都港区港南／JR「品川」站 步行13分钟・专属班车／地上34层・815户／2026年10月竣工</span></p>
     <p class="cnt"><span class="l ja">掲載中 4住戸</span><span class="l en">4 residences available</span><span class="l zh">在售 4套</span></p>
-    <div class="cards">
+    <div class="cards n4">
       <a class="card" href="https://tokyo-estate.github.io/livio-tower-shinagawa-3415/" data-href="https://tokyo-estate.github.io/livio-tower-shinagawa-3415/?lang=" target="_blank" rel="noopener">
         <figure><img src="img/u_livio_3415.jpg" width="960" height="504" loading="lazy" alt="3415"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
@@ -209,7 +228,7 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
   <div class="in">
     <p class="spec"><span class="l ja">東京都中央区晴海／東京BRT 徒歩0〜1分／SKY DUO（PARK VILLAGE・SUN VILLAGE T棟）地上50階／2025年10月竣工</span><span class="l en">Harumi, Chuo-ku, Tokyo / Tokyo BRT 0–1 min / SKY DUO (PARK & SUN VILLAGE towers), 50 floors / Completed Oct 2025</span><span class="l zh">东京都中央区晴海／东京BRT 步行0〜1分钟／SKY DUO（PARK・SUN VILLAGE T栋）地上50层／2025年10月竣工</span></p>
     <p class="cnt"><span class="l ja">掲載中 2住戸</span><span class="l en">2 residences available</span><span class="l zh">在售 2套</span></p>
-    <div class="cards">
+    <div class="cards n2">
       <a class="card" href="https://tokyo-estate.github.io/harumi-flag-sun-t-4505/" data-href="https://tokyo-estate.github.io/harumi-flag-sun-t-4505/?lang=" target="_blank" rel="noopener">
         <figure><img src="img/u_harumi_sunt4505.jpg" width="960" height="504" loading="lazy" alt="SUN-T 4505"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
@@ -237,7 +256,7 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
   <div class="in">
     <p class="spec"><span class="l ja">大阪府大阪市北区大深町／JR「大阪」駅 徒歩6分／地上48階・総戸数525戸／2013年3月竣工</span><span class="l en">Ofuka-cho, Kita-ku, Osaka / 6 min walk to JR Osaka Sta. / 48 floors, 525 homes / Completed Mar 2013</span><span class="l zh">大阪府大阪市北区大深町／JR「大阪」站 步行6分钟／地上48层・525户／2013年3月竣工</span></p>
     <p class="cnt"><span class="l ja">掲載中 1住戸</span><span class="l en">1 residence available</span><span class="l zh">在售 1套</span></p>
-    <div class="cards">
+    <div class="cards n1">
       <a class="card" href="https://tokyo-estate.github.io/grandfront-osaka-owners-tower-1906/" data-href="https://tokyo-estate.github.io/grandfront-osaka-owners-tower-1906/" target="_blank" rel="noopener">
         <figure><img src="img/u_gfo_1906.jpg" width="960" height="504" loading="lazy" alt="1906"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
@@ -256,7 +275,7 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
   <div class="in">
     <p class="spec"><span class="l ja">東京都品川区東品川／りんかい線「品川シーサイド」駅 徒歩4分／地上29階・総戸数817戸／2019年1月竣工</span><span class="l en">Higashi-Shinagawa, Shinagawa-ku, Tokyo / 4 min walk to Shinagawa Seaside Sta. / 29 floors, 817 homes / Completed Jan 2019</span><span class="l zh">东京都品川区东品川／临海线「品川Seaside」站 步行4分钟／地上29层・817户／2019年1月竣工</span></p>
     <p class="cnt"><span class="l ja">掲載中 1住戸</span><span class="l en">1 residence available</span><span class="l zh">在售 1套</span></p>
-    <div class="cards">
+    <div class="cards n1">
       <a class="card" href="https://tokyo-estate.github.io/prime-parks-shinagawa-seaside-the-tower-601/" data-href="https://tokyo-estate.github.io/prime-parks-shinagawa-seaside-the-tower-601/?lang=" target="_blank" rel="noopener">
         <figure><img src="img/u_pps_601.jpg" width="960" height="504" loading="lazy" alt="601"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
@@ -275,7 +294,7 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
   <div class="in">
     <p class="spec"><span class="l ja">千葉県千葉市美浜区若葉／JR京葉線「海浜幕張」駅 徒歩16分／地上38階・総戸数768戸／2025年12月竣工</span><span class="l en">Wakaba, Mihama-ku, Chiba / 16 min walk to Kaihin-Makuhari Sta. / 38 floors, 768 homes / Completed Dec 2025</span><span class="l zh">千叶县千叶市美滨区若叶／JR京叶线「海滨幕张」站 步行16分钟／地上38层・768户／2025年12月竣工</span></p>
     <p class="cnt"><span class="l ja">掲載中 1住戸</span><span class="l en">1 residence available</span><span class="l zh">在售 1套</span></p>
-    <div class="cards">
+    <div class="cards n1">
       <a class="card" href="https://tokyo-estate.github.io/makuhari-baypark-rise-gate-tower-1819/" data-href="https://tokyo-estate.github.io/makuhari-baypark-rise-gate-tower-1819/?lang=" target="_blank" rel="noopener">
         <figure><img src="img/u_mbp_1819.jpg" width="960" height="504" loading="lazy" alt="1819"><span class="go"><span class="l ja">物件サイトを見る</span><span class="l en">View residence</span><span class="l zh">查看房源</span></span></figure>
         <div class="tx">
