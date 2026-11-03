@@ -398,7 +398,7 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
   </div>
 </section>
 <section class="tower" id="prl">
-  <div class="tv"><video class="lazy" muted loop playsinline webkit-playsinline x5-playsinline x5-video-player-type="h5-page" preload="none" poster="img/prl_poster.jpg" data-webm="video/prl.webm" data-mp4="video/prl.mp4"></video>
+  <div class="tv"><video class="lazy" muted loop playsinline webkit-playsinline x5-playsinline x5-video-player-type="h5-page" preload="none" poster="img/prl_poster.jpg" data-webm="" data-mp4="video/prl.mp4"></video>
     <div class="cap"><p class="en">PALAIS ROYAL ICHIGAYA</p><h2><span class="l ja">パレロワイヤル市ヶ谷</span><span class="l en">PALAIS ROYAL ICHIGAYA</span><span class="l zh">Palais Royal 市谷</span></h2><p class="cp"><span class="l ja">別格の邸と、格別な時を。</span><span class="l en">An exceptional residence, an exceptional time.</span><span class="l zh">非凡之邸，非凡之时。</span></p></div></div>
   <div class="in">
     <p class="spec"><span class="l ja">東京都新宿区払方町／JR「市ヶ谷」駅 徒歩7分／地下1階付き地上4階・全15戸／2026年4月竣工</span><span class="l en">Haraikata-machi, Shinjuku-ku, Tokyo / 7 min walk to JR Ichigaya Sta. / 4 floors + basement, 15 homes / Completed Apr 2026</span><span class="l zh">东京都新宿区払方町／JR「市谷」站 步行7分钟／地上4层地下1层・全15户／2026年4月竣工</span></p>
@@ -493,9 +493,10 @@ footer{border-top:1px solid var(--line);padding:30px 22px calc(36px + env(safe-a
   function load(v){
     if(v.dataset.loaded)return; v.dataset.loaded=1;
     if(navigator.connection&&navigator.connection.saveData)return;
-    var a=document.createElement('source');a.src=v.dataset.webm;a.type='video/webm';
+    // data-webm が空のタワー（パレロワイヤル市ヶ谷）は mp4 だけ（VP9 が公開サーバー経由で Chrome のデコードエラーになるため、2026-11-04）
+    if(v.dataset.webm){var a=document.createElement('source');a.src=v.dataset.webm;a.type='video/webm';v.appendChild(a);}
     var b=document.createElement('source');b.src=v.dataset.mp4;b.type='video/mp4';
-    v.appendChild(a);v.appendChild(b);v.load();
+    v.appendChild(b);v.load();
     v.addEventListener('canplay',function(){if(v.dataset.vis)tryPlay(v);});
   }
   var vids=document.querySelectorAll('video.lazy');
